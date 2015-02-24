@@ -3,7 +3,7 @@ restaurantMenu.factory('FoodFactory', function FoodFactory() {
   factory.purchases = [];
 
   factory.priceTotal = function() {
-    var totat = 0;
+    var total = 0;
     factory.purchases.forEach(function(purchase) {
       total = total + purchase.price;
     });
@@ -11,10 +11,13 @@ restaurantMenu.factory('FoodFactory', function FoodFactory() {
   };
 
   factory.addPurchase = function() {
-    var purchase = { name: factory.purchaseName, quantity: factory.purchaseQuantity, pricePerUnit: factory.pricePerUnit};
+    var purchase = { name: JSON.parse(factory.product).name,
+                 quantity: parseInt(factory.purchaseQuantity),
+             pricePerUnit: JSON.parse(factory.product).pricePerUnit
+    };
     purchase.price = purchase.quantity * purchase.pricePerUnit;
     factory.purchases.push(purchase);
-
+    console.log(factory.purchases);
     purchaseName = null;
     purchaseQuantity = null;
     pricePerUnit = null;

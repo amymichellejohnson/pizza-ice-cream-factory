@@ -13,20 +13,46 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div ng-controller="IceCreamCtrl">
             <h3>Ice Cream Factory</h3>
-            <form role="form">
-              <select>
-                <option ng-repeat="item in iceCreamTypes" value="item">{{item}}</option>
+            <form ng-submit="FoodFactory.addPurchase()" role="form">
+              <select ng-model="FoodFactory.product" required>
+                <option ng-repeat="item in iceCreamTypes" value="{{item}}">{{item.name}}</option>
               </select>
+              <select ng-model="FoodFactory.purchaseQuantity" required>
+                <option  value="1">1</option>
+                <option  value="2">2</option>
+                <option  value="3">3</option>
+                <option  value="4">4</option>
+              </select>
+              <!-- <input type="text" required ng-model="FoodFactory.purchaseQuantity" placeholder="Quantity"> -->
+              <button type="submit" class="btn btn-default">Add to cart</button>
             </form>
+
+            <h4>This is what's in your cart:</h4>
+            <ul >
+              <li ng-repeat="item in FoodFactory.purchases">{{item.quantity}} {{item.name}}, Price/unit: {{item.pricePerUnit}}
+              </li>
+            </ul>
           </div>
         </div>
-
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div ng-controller="PizzaCtrl">
             <h3>Pizza Factory</h3>
+          </div>
+        </div>
+      </div>
+      <div ng-controller="IceCreamCtrl">
+        <div class="row">
+          <div class="col-sm-12">
+            <a ng-click="showthis = true">
+              <button type="button" class="btn">Calculate Total Cost</button>
+            </a>
+            <span ng-show = "showthis">
+              <h3> Total price:</h3>
+              {{FoodFactory.priceTotal()}}
+            </span>
           </div>
         </div>
       </div>
