@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="restaurantMenu">
+  <head>
+    <meta charset="UTF-8">
+    <title>Restaurant App</title>
+    <script src="lib/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="services/FoodFactory.js"></script>
+    <script src="controllers/IceCreamController.js"></script>
+    <script src="controllers/PizzaController.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div ng-controller="IceCreamCtrl">
+            <h3>Ice Cream Factory</h3>
+            <form role="form">
+              <select>
+                <option ng-repeat="item in iceCreamTypes" value="item">{{item}}</option>
+              </select>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div ng-controller="PizzaCtrl">
+            <h3>Pizza Factory</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
