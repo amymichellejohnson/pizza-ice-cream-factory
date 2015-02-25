@@ -11,7 +11,6 @@ restaurantMenu.controller('IceCreamCtrl', function IceCreamCtrl ($scope, FoodFac
   ];
 
   $scope.FoodFactory = FoodFactory;
+
   
-  FoodFactory.addPurchase()
-  iceCreams.push(purchase)
 });
