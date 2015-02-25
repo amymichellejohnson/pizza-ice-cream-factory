@@ -1,5 +1,7 @@
 restaurantMenu.controller('IceCreamCtrl', function IceCreamCtrl ($scope, FoodFactory) {
 
+  $scope.iceCreams = [];
+
   $scope.iceCreamTypes = [
   {name: "Sundae", pricePerUnit: 4.5},
   {name: "Scoop", pricePerUnit: 1.0},
@@ -9,4 +11,7 @@ restaurantMenu.controller('IceCreamCtrl', function IceCreamCtrl ($scope, FoodFac
   ];
 
   $scope.FoodFactory = FoodFactory;
+  
+  FoodFactory.addPurchase()
+  iceCreams.push(purchase)
 });

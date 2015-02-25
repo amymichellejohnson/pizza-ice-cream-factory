@@ -16,7 +16,7 @@ restaurantMenu.factory('FoodFactory', function FoodFactory() {
              pricePerUnit: JSON.parse(factory.product).pricePerUnit
     };
     purchase.price = purchase.quantity * purchase.pricePerUnit;
-    factory.purchases.push(purchase);
+    // factory.purchases.push(purchase);
     console.log(factory.purchases);
     purchaseName = null;
     purchaseQuantity = null;
